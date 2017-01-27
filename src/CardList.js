@@ -1,23 +1,50 @@
 import Inferno from 'inferno';
-import Component from 'inferno-component';
 import Card from './Card';
 import './CardList.css';
 
-class CardList extends Component {
-  render() {
-    var projects = ['Project 1', 'Project 2','Project 3','Project 4',
-    'Project 5','Project 6','Project 7','Project 8', 'Project9'];
+const CardList = () => {
+    var projects = [
+      {
+        name: 'Project 1',
+        completed: 4,
+        total: 10
+      },
+      { 
+        name: 'Project 2',
+        completed:  4,
+        total: 10
+      },
+      {
+        name: 'Project 3',
+        completed: 4,
+        total: 10
+      },
+      { 
+        name: 'Project 4',
+        completed:  4,
+        total: 10
+      },
+      {
+        name: 'Project 5',
+        completed: 4,
+        total: 10
+      },
+      { 
+        name: 'Project 6',
+        completed:  4,
+        total: 10
+      }
+    ];
               
     var cardList = projects.map(function (proj) {
-             return <Card name={proj} />
+             return <Card details={proj} />
           });
 
-              return (
-                <div class="columns is-multiline is-desktop card_List">
-                  {cardList}  
-                </div>
-               );
-  }
+    return (
+      <div class="columns is-multiline is-desktop card_List">
+        {cardList}  
+      </div>
+      );
 }
 
 export default CardList;
