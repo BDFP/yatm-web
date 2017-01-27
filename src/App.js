@@ -8,13 +8,11 @@ const App  = ({children}) => {
           <div>
             <NavBar />
             <div className="App">
-            <div className="App-header">
+            {/*<div className="App-header">
               <Logo />
               <h1>To-Do</h1>
-            </div>
-            {/*<p className="App-intro">
-              To ge, edit <code>src/App.js</code> and save to reload.
-            </p>*/}
+            </div>*/}
+            
             </div>
             <div className="container">
             {children}
