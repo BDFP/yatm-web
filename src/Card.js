@@ -16,7 +16,9 @@ class Card extends Component {
             value={this.state.completed} 
             max={this.state.total}>
               {this.state.completed/this.state.total}%
+              <p>{(this.state.completed/this.state.total)*100}%</p>
          </progress>
+    <p>{(this.state.completed/this.state.total)*100}%</p>
       </div>
      </div>
     );

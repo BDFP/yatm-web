@@ -9,7 +9,7 @@ class NavBar extends Component {
   <div class="container">
     <div class="nav-left">
       <a class="nav-item">
-        <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo"/>
+        <img src="../logo2.png" alt="TO-Do logo"/>
       </a>
       <a class="nav-item is-tab is-hidden-mobile is-active">Home</a>
       <a class="nav-item is-tab is-hidden-mobile">Schedule</a>
