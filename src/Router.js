@@ -1,9 +1,9 @@
 import Inferno from 'inferno';
 import { Router, Route, IndexRoute } from 'inferno-router';
 import {createBrowserHistory} from 'history';
-import App from './App';
-import CardList from './CardList';
-import CardDetails from './CardDetails'; 
+import App from './components/App';
+import CardList from './components/CardList';
+import CardDetails from './components/CardDetails'; 
 
 const browserHistory = createBrowserHistory();
 

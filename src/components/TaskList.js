@@ -1,5 +1,6 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
+import './TaskList.css';
 
 
 class TaskList extends Component {
@@ -13,14 +14,16 @@ class TaskList extends Component {
       var tasks = this.state.map(function(task){
           return ( 
                 <li>
-                    {task.name}
+                   <input type="checkbox" name="status"/> {task.name} 
                 </li>
                );  
       })
     return (
+      <div class="taskslist">
      <ul>
      {tasks}
      </ul>
+     </div>
     );
   }
 }

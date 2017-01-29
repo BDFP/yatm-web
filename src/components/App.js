@@ -1,5 +1,4 @@
 import Inferno from 'inferno';
-import Logo from './logo';
 import './App.css';
 import NavBar from './NavBar';
 

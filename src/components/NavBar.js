@@ -25,8 +25,8 @@ class NavBar extends Component {
       <a class="nav-item is-tab is-hidden-tablet">Pricing</a>
       <a class="nav-item is-tab is-hidden-tablet">About</a>
       <a class="nav-item is-tab">
-        <figure class="image is-16x16" style="margin-right: 8px;">
-          <img src="http://bulma.io/images/jgthms.png"/>
+        <figure class="image is-16x16">
+          <img src="http://bulma.io/images/jgthms.png" alt="Profile Logo"/>
         </figure>
         Profile
       </a>

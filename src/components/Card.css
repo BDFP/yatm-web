@@ -1,11 +1,11 @@
-div.singlecard{
+div.cardtext{
     padding-top: 25px;
     padding-bottom: 25px;
 }
-div.singlecard{
-    border-radius: 5px;
+div.cardtext{
+    border-radius: 1px;
 } 
-div.singlecard{
+div.cardtext{
 	margin-top: 5px;
 	margin-bottom: 5px;
 }

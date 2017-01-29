@@ -13,7 +13,7 @@ div.taskslist{
 }
 
     input[type=text]{
-    width: 50%;
+    width: %;
     padding: 12px 20px;
     margin-right: 5px;
     margin-left: 150px;
@@ -24,7 +24,7 @@ div.taskslist{
 }
 
 input[type=submit] {
-    width: 20%;
+    width: 10%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -38,4 +38,6 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
-
+.carddetails {
+    margin-top: 50px;
+}
