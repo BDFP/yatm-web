@@ -1,7 +1,6 @@
 # yatm-web [![Build Status](https://travis-ci.org/8th-mile/web.svg?branch=master)](https://travis-ci.org/8th-mile/web)
 
 > Task management and beyond
-> Demo: https://yatm.shakdwipeea.com
 
 ## Ideas
 
