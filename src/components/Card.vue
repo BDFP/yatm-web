@@ -27,7 +27,7 @@
         },
         computed: {
             completePercent: function completePercent() {
-                return (this.data.completed / this.data.total) * 100;
+                return this.data.total === 0 ? 0 : (this.data.completed / this.data.total) * 100;
             },
         },
     };

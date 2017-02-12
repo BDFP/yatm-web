@@ -1,50 +1,58 @@
 <template>
     <div class="carddetails columns">
-            <card class="title column is-quarter" :data="cardDetail"> </card>
+            <card class="title column is-quarter" :data="projectDetail"> </card>
             <div class="column is-three-quarter">
                 <div>
-                    <task-list :taskList="tasks"" > </task-list>
+                    <task-list :taskList="currentTasks"> </task-list>
                 </div>
                 <div class="inputform">
-                <form>
-                    <input type="text" name="taskdescription" 
+                    <input type="text" name="taskdescription"
+                        v-model="taskName"
+                        @keyup.enter="doneAddTask"
                         placeholder="Your To-Do"/>
-                    <input type="submit" value="Submit"/>
-                    </form>
                 </div>
             </div>
         </div>
 </template>
 
 <script>
+    import { mapGetters, mapActions } from 'vuex';
+
     import card from './Card';
     import TaskList from './TaskList';
 
     export default {
         name: 'card-detail',
-        data: function getCardDetailData() {
+        data() {
             return {
-                cardDetail: {
-                    id: 9,
-                    name: 'My Project',
-                    completed: 80,
-                    total: 100,
-                },
-                tasks: [
-                    {
-                        name: 'task1',
-                    },
-                    {
-                        name: 'task2',
-                    },
-                    {
-                        name: 'task3',
-                    },
-                    {
-                        name: 'task4',
-                    },
-                ],
+                taskName: '',
             };
+        },
+        computed: {
+            ...mapGetters({
+                getAllTasks: 'getTasks',
+                getProjects: 'getProjects',
+            }),
+            currentTasks() {
+                this.$log.log('Id ', this.$route.params.id);
+                return this.getAllTasks[this.$route.params.id];
+            },
+            projectDetail() {
+                return this.getProjects[this.$route.params.id];
+            },
+        },
+        methods: {
+            ...mapActions(['addTask']),
+            doneAddTask() {
+                this.addTask({
+                    projectId: this.$route.params.id,
+                    name: this.taskName.trim(),
+                    id: this.currentTasks === undefined ? 0 :
+                        this.currentTasks.length,
+                });
+
+                this.taskName = '';
+            },
         },
         components: { card, TaskList },
     };

@@ -5,77 +5,36 @@
             v-for="project in projects" 
             :data="project"> 
         </card>
+        <input type="text"
+            name="project"
+            v-model="projectName"
+            @keyup.enter="doneProject" 
+            placeholder="Enter project name">
     </div>
 </template>
 
 <script>
+    import { mapGetters, mapMutations } from 'vuex';
     import card from './Card';
-
-    const projects = [
-        {
-            name: 'Project 1',
-            completed: 4,
-            total: 10,
-            id: 1,
-        },
-        {
-            name: 'Project 2',
-            completed: 4,
-            total: 10,
-            id: 2,
-        },
-        {
-            name: 'Project 3',
-            completed: 4,
-            total: 10,
-            id: 3,
-        },
-        {
-            name: 'Project 4',
-            completed: 4,
-            total: 10,
-            id: 4,
-        },
-        {
-            name: 'Project 5',
-            completed: 4,
-            total: 10,
-            id: 5,
-        },
-        {
-            name: 'Project 6',
-            completed: 4,
-            total: 10,
-            id: 6,
-        },
-        {
-            name: 'Project 4',
-            completed: 4,
-            total: 10,
-            id: 4,
-        },
-        {
-            name: 'Project 5',
-            completed: 4,
-            total: 10,
-            id: 5,
-        },
-        {
-            name: 'Project 6',
-            completed: 4,
-            total: 10,
-            id: 6,
-        },
-    ];
 
     export default {
         name: 'CardList',
-        data: function getDataForCardList() {
+        data() {
             return {
-                projects,
+                projectName: '',
             };
         },
+        computed: mapGetters({
+            projects: 'getProjects',
+        }),
         components: { card },
+        methods: {
+            ...mapMutations(['addProject']),
+            doneProject(e) {
+                const value = e.target.value.trim();
+                this.addProject(value);
+            },
+        },
     };
 </script>
 

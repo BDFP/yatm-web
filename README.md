@@ -1,4 +1,4 @@
-# yatm-web [![Build Status](https://travis-ci.org/8th-mile/web.svg?branch=master)](https://travis-ci.org/8th-mile/web)
+# yatm-web [![Build Status](https://travis-ci.org/BDFP/yatm-web.svg?branch=master)](https://travis-ci.org/BDFP/yatm-web)
 
 > Task management and beyond
 
