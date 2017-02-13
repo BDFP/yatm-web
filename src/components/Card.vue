@@ -4,8 +4,8 @@
         <div class="cardtext content is-large card">
         <h1 id="cardname">{{ data.name }}</h1>
             <progress class="progress is-primary" 
-            v-bind:value="data.completed" 
-            v-bind:max="data.total">
+            v-bind:value="completedTaskCount" 
+            v-bind:max="taskData.length">
                 <p>{{ completePercent }} %</p>
             </progress>
             <p>{{ completePercent }} % completed</p>
@@ -15,22 +15,40 @@
 </template>
 
 <script>
-    export default {
-        name: 'card',
-        props: ['data'],
-        data: function getCardData() {
-            return {
-                completedTask: 98,
-                name: 'Card Name',
-                totalTask: 100,
-            };
+import { mapGetters } from 'vuex';
+
+export default {
+    name: 'card',
+    props: ['data'],
+    computed: {
+        ...mapGetters({
+            getAllTasks: 'getTasks',
+        }),
+        taskData() {
+            let currentTask = this.getAllTasks[this.data.id];
+            this.$log.log('Curren task is ', currentTask);
+
+            if (currentTask === undefined) {
+                currentTask = [];
+            }
+
+            return currentTask;
         },
-        computed: {
-            completePercent: function completePercent() {
-                return this.data.total === 0 ? 0 : (this.data.completed / this.data.total) * 100;
-            },
+        completedTaskCount() {
+            return this.taskData
+                .filter(tData => tData.completed === true)
+                .length;
         },
-    };
+        completePercent: function completePercent() {
+            this.$log.log('Curren task is ', this.taskData);
+            const totalTasks = this.taskData.length;
+
+            return this.completedTaskCount === 0
+                ? 0
+                : (this.completedTaskCount / totalTasks) * 100;
+        },
+    },
+};
 </script>
 
 <style>

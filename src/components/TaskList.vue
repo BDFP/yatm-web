@@ -29,10 +29,10 @@
             };
         },
         methods: {
-            ...mapActions(['markDone']),
+            ...mapActions(['toggleDone']),
             doCheck(e) {
                 this.$log.log('Checkedd tasks ', e.target.value);
-                this.markDone({
+                this.toggleDone({
                     projectId: this.$route.params.id,
                     id: parseInt(e.target.value, 10),
                 });

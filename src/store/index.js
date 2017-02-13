@@ -25,8 +25,6 @@ const store = new Vuex.Store({
         addProject(state, projectName) {
             state.projects.push({
                 name: projectName,
-                completed: 0,
-                total: 0,
                 id: state.projects.length,
             });
         },
@@ -41,20 +39,16 @@ const store = new Vuex.Store({
                 id: task.id,
             });
         },
-        markDone(state, task) {
+        toggleDone(state, task) {
             const projTasks = state.tasks[task.projectId];
-            const doneTaskId = projTasks
+            projTasks
                 .filter(pTask => pTask.id === task.id)
                 .map(doneTask => doneTask.id);
-
-            if (doneTaskId.length > 0) {
-                state.tasks[task.projectId][doneTaskId[0]].completed = true;
-            }
         },
     },
     actions: {
         addTask: ({ commit }, task) => commit('addTask', task),
-        markDone: ({ commit }, task) => commit('markDone', task),
+        toggleDone: ({ commit }, task) => commit('toggleDone', task),
     },
     plugins: [createPersistedState()],
 });
